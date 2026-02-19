@@ -248,8 +248,8 @@ with tab_builder:
             )
 
         # Operational parameters
-        with st.expander("Operational parameters", expanded=False):
-            op_cols = st.columns(3)
+        with st.expander("Operational parameters", expanded=True):
+            op_cols = st.columns(4)
             with op_cols[0]:
                 sub_bags_duration = st.number_input(
                     "Substrate Bags: duration (days)",
@@ -274,6 +274,15 @@ with tab_builder:
                     step=0.5,
                     key=f"gbs_duration_{i}",
                 )
+            with op_cols[3]:
+                fruiting_duration = st.number_input(
+                    "Fruiting: duration (days)",
+                    min_value=0.0,
+                    value=1.0,
+                    step=0.5,
+                    key=f"fruiting_duration_{i}",
+                )
+
 
         # ---------- RUN THIS PLAN ----------
         if desired_yield > 0:
